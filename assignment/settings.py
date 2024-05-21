@@ -113,7 +113,7 @@ REST_FRAMEWORK = {
 # Spectacular settings
 SPECTACULAR_SETTINGS = {
     "TITLE": "Unisport Assignment API",
-    "DESCRIPTION": "Unisport assignmento webservice",
+    "DESCRIPTION": "Unisport assignment webservice",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
     # OTHER SETTINGS

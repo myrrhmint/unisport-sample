@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Unisport Assignment API
   version: 1.0.0
-  description: Unisport assignmento webservice
+  description: Unisport assignment webservice
 paths:
   /labels/:
     get:
