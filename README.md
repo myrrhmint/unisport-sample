@@ -1,31 +1,33 @@
-_Fork this project and send us a pull request_
+## Overview
+The project is realized using Django and DRF. The endpoints are documented and testable at `/docs` and `/redoc`.
 
-Write a simple python webservice that uses, manipuates and returns the data found here: [https://www.unisport.dk/api/products/batch/](https://www.unisport.dk/api/products/batch/?list=200776,213591,200775,197250,213590,200780,209588,217706,205990,212703,197237,205989,211651,213626,217710,200783,213576,202483,200777,203860,198079,189052,205946,209125,200784,190711,201338,201440,206026,213587,172011,209592,193539,173432,200785,201442,203854,213577,200802,197362).
+Each product can have 0..n stock items tied to itself. Each product can be tied to 0..n labels. The labels are indepentend from the products.
 
+The code is inside a django app called `products`, which exposes the following urls:
+- `products/`: Retrieves the paginated list of the products, with the products ordered by the related stock min price. Also allows creation.
+- `products/{pk}`: Retrieves the specified product. Allows updates and deletes.
+- `products/{pk}/stock`: Retrieves the stock for a given product. Allows the creation of new stock items for the given product.
+- `products/{pk}/stock/{pk}`: Retrieves the specified stock for the given product. Allows updates and deletes. 
+- `products/{pk}/labels`: Retrieves the labels tied to the given product. Allows the addition of new labels to the given product.
+- `products/{pk}/labels/{pk}`: Retrieves the specified label for the given stock. Allows the removal of the specified label from the given product.
+- `labels/`: Retrieves all labels, paginated. Allows creation.
+- `labels/{pk}`: Retrieves the specified label. Allows updates and deletes.
 
-**/products/**  
+### Data import
+In `products/scripts` a `import.py` script is provided to retrieve the data from the provided URL and import it into the database. The script can be run with the `runscript` command, as shown in the "Running" section. It uses pydantic for validation.
 
+### Database
+The dbms is sqlite for simplicity.
 
-should return the first 10 objects ordered with the cheapest first.
-
-**/products/?page=2**
- 
- The products should be paginated where **page** in the url above should return the next 10 objects  
-
- **/products/id/**
- 
-should return the individual product.
-
-
- 
-**_Remember to test_**   
-**_Remember to document (why, not how)_**
-
-#### Bonus:
- extend the service so the products can also be created, edited and deleted in a backend of choice.
-
-
-_You are welcome to use any thirdparty python web framework or library that you are familiar with._  
-
-#### Forking and Pull Requests
-Information on how to work with forks and pull requests can be found here https://help.github.com/categories/collaborating-with-issues-and-pull-requests/
+### Running
+From inside the repo directory, run:
+```
+pip install -r requirements.txt
+python manage.py runscript products.scripts.import
+python manage.py runserver
+```
+### Testing
+From inside the repo directory, run:
+```
+python manage.py test
+```
