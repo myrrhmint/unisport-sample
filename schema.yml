@@ -1,0 +1,1143 @@
+openapi: 3.0.3
+info:
+  title: Unisport Assignment API
+  version: 1.0.0
+  description: Unisport assignmento webservice
+paths:
+  /labels/:
+    get:
+      operationId: labels_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLabelList'
+          description: ''
+    post:
+      operationId: labels_create
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Label'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Label'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Label'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Label'
+          description: ''
+  /labels/{id}/:
+    get:
+      operationId: labels_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this label.
+        required: true
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Label'
+          description: ''
+    put:
+      operationId: labels_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this label.
+        required: true
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Label'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Label'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Label'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Label'
+          description: ''
+    patch:
+      operationId: labels_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this label.
+        required: true
+      tags:
+      - labels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLabel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLabel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLabel'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Label'
+          description: ''
+    delete:
+      operationId: labels_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this label.
+        required: true
+      tags:
+      - labels
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /products/:
+    get:
+      operationId: products_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductList'
+          description: ''
+    post:
+      operationId: products_create
+      tags:
+      - products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+  /products/{id}/:
+    get:
+      operationId: products_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this product.
+        required: true
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+    put:
+      operationId: products_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this product.
+        required: true
+      tags:
+      - products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Product'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Product'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+    patch:
+      operationId: products_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this product.
+        required: true
+      tags:
+      - products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedProduct'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+    delete:
+      operationId: products_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this product.
+        required: true
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /products/{product_pk}/labels/:
+    get:
+      operationId: products_labels_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductLabelList'
+          description: ''
+    post:
+      operationId: products_labels_create
+      description: Adds the label specified in the request to the product specified
+        in the URL
+      parameters:
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductLabel'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ProductLabel'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ProductLabel'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductLabel'
+          description: ''
+  /products/{product_pk}/labels/{id}/:
+    get:
+      operationId: products_labels_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductLabel'
+          description: ''
+    delete:
+      operationId: products_labels_destroy
+      description: Removes the label specified in the URL from the product specified
+        in the URL
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /products/{product_pk}/stock/:
+    get:
+      operationId: products_stock_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStockList'
+          description: ''
+    post:
+      operationId: products_stock_create
+      description: Creates a new stock item for the product specified in the URL
+      parameters:
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stock'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Stock'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Stock'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+          description: ''
+  /products/{product_pk}/stock/{id}/:
+    get:
+      operationId: products_stock_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+          description: ''
+    put:
+      operationId: products_stock_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Stock'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Stock'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Stock'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+          description: ''
+    patch:
+      operationId: products_stock_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedStock'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedStock'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedStock'
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stock'
+          description: ''
+    delete:
+      operationId: products_stock_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: product_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Label:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        color:
+          type: string
+          maxLength: 7
+        background_color:
+          type: string
+          maxLength: 7
+        active:
+          type: boolean
+        id:
+          type: integer
+          readOnly: true
+      required:
+      - active
+      - background_color
+      - color
+      - id
+      - name
+      - priority
+    Nested:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        color:
+          type: string
+          maxLength: 7
+        background_color:
+          type: string
+          maxLength: 7
+        active:
+          type: boolean
+      required:
+      - active
+      - background_color
+      - color
+      - id
+      - name
+      - priority
+    PaginatedLabelList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Label'
+    PaginatedProductLabelList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductLabel'
+    PaginatedProductList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+    PaginatedStockList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stock'
+    PatchedLabel:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 255
+        priority:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        color:
+          type: string
+          maxLength: 7
+        background_color:
+          type: string
+          maxLength: 7
+        active:
+          type: boolean
+        id:
+          type: integer
+          readOnly: true
+    PatchedProduct:
+      type: object
+      properties:
+        product_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        style:
+          type: string
+          maxLength: 50
+        name:
+          type: string
+          maxLength: 255
+        relative_url:
+          type: string
+          maxLength: 255
+        image:
+          type: string
+          format: uri
+          maxLength: 500
+        delivery:
+          type: string
+          maxLength: 50
+        online:
+          type: boolean
+        active:
+          type: boolean
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nested'
+          readOnly: true
+        is_customizable:
+          type: boolean
+        paid_print:
+          type: boolean
+        is_exclusive:
+          type: boolean
+        customization_template_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        currency:
+          type: string
+          maxLength: 10
+        url:
+          type: string
+          format: uri
+          maxLength: 500
+        attributes: {}
+        id:
+          type: integer
+          readOnly: true
+        stock:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nested'
+          readOnly: true
+        prices:
+          type: object
+          properties:
+            min_price:
+              type: string
+            max_price:
+              type: string
+            currency:
+              type: string
+            reccomended_retail_price:
+              type: string
+            discount_percentage:
+              type: string
+          required:
+          - currency
+          - discount_percentage
+          - max_price
+          - min_price
+          - reccomended_retail_price
+          description: Get the prices of the product based on the related stock
+          readOnly: true
+    PatchedStock:
+      type: object
+      properties:
+        sku_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        size_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        barcode:
+          type: string
+          maxLength: 20
+        order_by:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        name:
+          type: string
+          maxLength: 50
+        name_short:
+          type: string
+          maxLength: 50
+        stock_info:
+          type: string
+          nullable: true
+          maxLength: 255
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        recommended_retail_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        discount_percentage:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,3}(?:\.\d{0,2})?$
+        supplier:
+          type: string
+          maxLength: 50
+        is_marketplace:
+          type: boolean
+        availability:
+          type: string
+          maxLength: 50
+        id:
+          type: integer
+          readOnly: true
+        product:
+          type: integer
+          readOnly: true
+    Product:
+      type: object
+      properties:
+        product_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        style:
+          type: string
+          maxLength: 50
+        name:
+          type: string
+          maxLength: 255
+        relative_url:
+          type: string
+          maxLength: 255
+        image:
+          type: string
+          format: uri
+          maxLength: 500
+        delivery:
+          type: string
+          maxLength: 50
+        online:
+          type: boolean
+        active:
+          type: boolean
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nested'
+          readOnly: true
+        is_customizable:
+          type: boolean
+        paid_print:
+          type: boolean
+        is_exclusive:
+          type: boolean
+        customization_template_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+          nullable: true
+        currency:
+          type: string
+          maxLength: 10
+        url:
+          type: string
+          format: uri
+          maxLength: 500
+        attributes: {}
+        id:
+          type: integer
+          readOnly: true
+        stock:
+          type: array
+          items:
+            $ref: '#/components/schemas/Nested'
+          readOnly: true
+        prices:
+          type: object
+          properties:
+            min_price:
+              type: string
+            max_price:
+              type: string
+            currency:
+              type: string
+            reccomended_retail_price:
+              type: string
+            discount_percentage:
+              type: string
+          required:
+          - currency
+          - discount_percentage
+          - max_price
+          - min_price
+          - reccomended_retail_price
+          description: Get the prices of the product based on the related stock
+          readOnly: true
+      required:
+      - active
+      - attributes
+      - currency
+      - delivery
+      - id
+      - image
+      - is_customizable
+      - is_exclusive
+      - labels
+      - name
+      - online
+      - paid_print
+      - prices
+      - product_id
+      - relative_url
+      - stock
+      - style
+      - url
+    ProductLabel:
+      type: object
+      properties:
+        label_id:
+          type: integer
+        name:
+          type: string
+          readOnly: true
+        priority:
+          type: integer
+          readOnly: true
+        color:
+          type: string
+          readOnly: true
+        background_color:
+          type: string
+          readOnly: true
+        active:
+          type: boolean
+          readOnly: true
+      required:
+      - active
+      - background_color
+      - color
+      - label_id
+      - name
+      - priority
+    Stock:
+      type: object
+      properties:
+        sku_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        size_id:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        barcode:
+          type: string
+          maxLength: 20
+        order_by:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        name:
+          type: string
+          maxLength: 50
+        name_short:
+          type: string
+          maxLength: 50
+        stock_info:
+          type: string
+          nullable: true
+          maxLength: 255
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        recommended_retail_price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        discount_percentage:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,3}(?:\.\d{0,2})?$
+        supplier:
+          type: string
+          maxLength: 50
+        is_marketplace:
+          type: boolean
+        availability:
+          type: string
+          maxLength: 50
+        id:
+          type: integer
+          readOnly: true
+        product:
+          type: integer
+          readOnly: true
+      required:
+      - availability
+      - barcode
+      - discount_percentage
+      - id
+      - is_marketplace
+      - name
+      - name_short
+      - order_by
+      - price
+      - product
+      - recommended_retail_price
+      - size_id
+      - sku_id
+      - supplier
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid
